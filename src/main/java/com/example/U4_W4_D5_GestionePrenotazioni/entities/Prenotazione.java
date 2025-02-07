@@ -32,10 +32,10 @@ public class Prenotazione {
     private LocalDate dataPrenotazione;
     private LocalDate scadenzaPrenotazione;
 
-    public Prenotazione(Postazione postazione, Utente utente) {
+    public Prenotazione(Postazione postazione, Utente utente, LocalDate dataPrenotazione) {
         this.postazione = postazione;
         this.utente = utente;
-        this.dataPrenotazione = LocalDate.now();
+        this.dataPrenotazione = dataPrenotazione;
         this.scadenzaPrenotazione = calcolaScadenza();
     }
 

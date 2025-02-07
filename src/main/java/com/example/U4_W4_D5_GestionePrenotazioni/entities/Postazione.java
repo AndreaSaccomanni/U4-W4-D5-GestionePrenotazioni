@@ -18,7 +18,7 @@ import java.util.List;
 public class Postazione {
     @Id
     @GeneratedValue
-    private long codiceUnivoco;
+    private Long codiceUnivoco;
     private String descrizione;
     private Tipo tipo;
     private int numeroMaxOccupanti;

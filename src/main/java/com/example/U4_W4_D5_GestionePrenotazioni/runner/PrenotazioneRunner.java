@@ -15,13 +15,29 @@ public class PrenotazioneRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Prenotazione prenotazione1 = prenotazioneService.createPrenotazione1();
-        Prenotazione prenotazione2 = prenotazioneService.createPrenotazione2();
-        Prenotazione prenotazione3 = prenotazioneService.createPrenotazione3();
+        System.out.println("--- Prenotazione Runner ---");
 
-//        prenotazioneService.salvaPrenotazione(prenotazione1);
-//        prenotazioneService.salvaPrenotazione(prenotazione2);
+        //Prenotazione prenotazione1 = prenotazioneService.createPrenotazione1();
+        Prenotazione prenotazione2 = prenotazioneService.createPrenotazione2();
+//        Prenotazione prenotazione3 = prenotazioneService.createPrenotazione3();
+//        Prenotazione prenotazione4 = prenotazioneService.createPrenotazione4();
+//        Prenotazione prenotazione5 = prenotazioneService.createPrenotazione5();
+//        Prenotazione prenotazione6 = prenotazioneService.createPrenotazione6();
+//        Prenotazione prenotazione7 = prenotazioneService.createPrenotazione7();
+//        Prenotazione prenotazione8 = prenotazioneService.createPrenotazione8();
+//        Prenotazione prenotazione9 = prenotazioneService.createPrenotazione9();
+//
+        //prenotazioneService.salvaPrenotazione(prenotazione1);
+        prenotazioneService.salvaPrenotazione(prenotazione2);
 //        prenotazioneService.salvaPrenotazione(prenotazione3);
+//        prenotazioneService.salvaPrenotazione(prenotazione4);
+//        prenotazioneService.salvaPrenotazione(prenotazione5);
+//        prenotazioneService.salvaPrenotazione(prenotazione6);
+//        prenotazioneService.salvaPrenotazione(prenotazione7);
+//        prenotazioneService.salvaPrenotazione(prenotazione8);
+//        prenotazioneService.salvaPrenotazione(prenotazione9);
 
     }
+
+
 }

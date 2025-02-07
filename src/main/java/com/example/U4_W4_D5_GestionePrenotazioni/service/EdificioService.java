@@ -1,12 +1,15 @@
 package com.example.U4_W4_D5_GestionePrenotazioni.service;
 
 import com.example.U4_W4_D5_GestionePrenotazioni.entities.Edificio;
+import com.example.U4_W4_D5_GestionePrenotazioni.entities.Prenotazione;
 import com.example.U4_W4_D5_GestionePrenotazioni.entities.Utente;
 import com.example.U4_W4_D5_GestionePrenotazioni.repository.EdificioDAORepository;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class EdificioService {
@@ -32,6 +35,15 @@ public class EdificioService {
 
     public void salvaEdificio(Edificio e){
         edificioDAO.save(e);
+    }
+
+    public Optional<Edificio> getEdificioById(long id) {
+        return edificioDAO.findById(id);
+    }
+
+    public void deleteEdificio(long id) {
+        edificioDAO.deleteById(id);
+        System.out.println("Edificio eliminato con successo");
     }
 
 }

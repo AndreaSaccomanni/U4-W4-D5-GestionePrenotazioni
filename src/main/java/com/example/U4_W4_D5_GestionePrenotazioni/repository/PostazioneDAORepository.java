@@ -8,11 +8,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PostazioneDAORepository extends JpaRepository<Postazione, Long> {
 
+
+
     Postazione findByCodiceUnivoco(Long codiceUnivoco);
 
     Postazione findByTipo(Tipo tipo);
 
     Postazione findByDescrizione(String descrizione);
 
-    Postazione findByNumeroMaxOccpuanti(int numeroMaxOccuoanti);
+    Postazione findByNumeroMaxOccupanti(int numeroMaxOccuoanti);
 }

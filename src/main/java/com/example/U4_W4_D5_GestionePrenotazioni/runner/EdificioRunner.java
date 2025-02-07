@@ -14,13 +14,20 @@ public class EdificioRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Edificio e1 = edificioService.createEdificio1();
-        Edificio e2 = edificioService.createEdificio2();
-        Edificio e3 = edificioService.createEdificio3();
+        System.out.println("--- Edificio Runner ---");
 
+//        Edificio e1 = edificioService.createEdificio1();
+//        Edificio e2 = edificioService.createEdificio2();
+//        Edificio e3 = edificioService.createEdificio3();
+//
 //        edificioService.salvaEdificio(e1);
+//        System.out.println("Edificio 1 salvato con successo: " + e1);
 //        edificioService.salvaEdificio(e2);
+//        System.out.println("Edificio 2 salvato con successo: " + e2);
 //        edificioService.salvaEdificio(e3);
+//        System.out.println("Edificio 3 salvato con successo: " + e3);
+
+
 
     }
 }

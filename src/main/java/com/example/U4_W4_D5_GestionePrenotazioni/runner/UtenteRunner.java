@@ -15,11 +15,11 @@ public class UtenteRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("--- UtenteRunner ---");
-        Utente u1 = utenteService.createUtente1();
-        Utente u2 = utenteService.createUtente2();
-        Utente u3 = utenteService.createUtente3();
-
+//        System.out.println("--- UtenteRunner ---");
+//        Utente u1 = utenteService.createUtente1();
+//        Utente u2 = utenteService.createUtente2();
+//        Utente u3 = utenteService.createUtente3();
+//
 //        utenteService.salvaUtente(u1);
 //        utenteService.salvaUtente(u2);
 //        utenteService.salvaUtente(u3);

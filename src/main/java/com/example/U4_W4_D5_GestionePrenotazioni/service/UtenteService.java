@@ -31,6 +31,7 @@ public class UtenteService {
 
     public void salvaUtente(Utente u){
         utenteDAO.save(u);
+        System.out.println("Utente salvato con successo: " + u);
     }
 
     public Utente trovaUtenteTramiteEmail(String email){
