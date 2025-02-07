@@ -6,5 +6,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UtenteDAORepository extends JpaRepository<Utente, Long> {
+
     Utente findByUsername(String usernme);
+
+    Utente findByNomeECognome(String nomeECognome);
+
+    Utente findByEmail(String email);
 }

@@ -9,17 +9,17 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class postazioneConfiguration {
 
-    @Bean
+    @Bean(name = "postazione1")
     public Postazione postazione1(Edificio edificio1) {
         return new Postazione("Postazione 1", Tipo.PRIVATO, 4, edificio1);
     }
 
-    @Bean
+    @Bean(name = "postazione2")
     public Postazione postazione2(Edificio edificio2) {
         return new Postazione("Postazione 2", Tipo.OPENSPACE, 10, edificio2);
     }
 
-    @Bean
+    @Bean(name = "postazione3")
     public Postazione postazione3(Edificio edificio3) {
         return new Postazione("Postazione 3", Tipo.SALA_RIUNIONI, 6, edificio3);
     }

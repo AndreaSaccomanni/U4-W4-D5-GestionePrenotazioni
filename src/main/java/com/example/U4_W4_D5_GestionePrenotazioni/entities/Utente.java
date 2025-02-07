@@ -20,15 +20,15 @@ public class Utente {
     @GeneratedValue
     private long id;
     private String username;
-    private String nomeCompleto;
+    private String nomeECognome;
     private String email;
 
     @OneToMany(mappedBy = "utente")
     private List<Prenotazione> prenotazioni;
 
-    public Utente(String username, String nomeCompleto, String email) {
+    public Utente(String username, String nomeECognome, String email) {
         this.username = username;
-        this.nomeCompleto = nomeCompleto;
+        this.nomeECognome = nomeECognome;
         this.email = email;
     }
 

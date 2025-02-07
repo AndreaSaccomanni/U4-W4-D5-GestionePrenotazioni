@@ -7,17 +7,17 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class edificioConfiguration {
 
-    @Bean
+    @Bean(name = "edificio1")
     public Edificio edificio1() {
         return new Edificio("Edificio A", "Via Roma 1", "Roma");
     }
 
-    @Bean
+    @Bean(name = "edificio2")
     public Edificio edificio2() {
         return new Edificio("Edificio B", "Via Milano 22", "Milano");
     }
 
-    @Bean
+    @Bean(name = "edificio3")
     public Edificio edificio3() {
         return new Edificio("Edificio C", "Corso Venezia 5", "Napoli");
     }
