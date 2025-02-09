@@ -3,15 +3,13 @@ package com.example.U4_W4_D5_GestionePrenotazioni.repository;
 import com.example.U4_W4_D5_GestionePrenotazioni.entities.Postazione;
 import com.example.U4_W4_D5_GestionePrenotazioni.entities.Prenotazione;
 import com.example.U4_W4_D5_GestionePrenotazioni.entities.Utente;
-import com.example.U4_W4_D5_GestionePrenotazioni.enumeration.Tipo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Repository
 public interface PrenotazioneDAORepository extends JpaRepository<Prenotazione, Long> {

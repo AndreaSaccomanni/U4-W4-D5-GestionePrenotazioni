@@ -1,7 +1,5 @@
 package com.example.U4_W4_D5_GestionePrenotazioni.runner;
 
-import com.example.U4_W4_D5_GestionePrenotazioni.entities.Utente;
-import com.example.U4_W4_D5_GestionePrenotazioni.repository.UtenteDAORepository;
 import com.example.U4_W4_D5_GestionePrenotazioni.service.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

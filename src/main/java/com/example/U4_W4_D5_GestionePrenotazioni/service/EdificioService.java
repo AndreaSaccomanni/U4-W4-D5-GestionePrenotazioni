@@ -1,8 +1,6 @@
 package com.example.U4_W4_D5_GestionePrenotazioni.service;
 
 import com.example.U4_W4_D5_GestionePrenotazioni.entities.Edificio;
-import com.example.U4_W4_D5_GestionePrenotazioni.entities.Prenotazione;
-import com.example.U4_W4_D5_GestionePrenotazioni.entities.Utente;
 import com.example.U4_W4_D5_GestionePrenotazioni.repository.EdificioDAORepository;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;

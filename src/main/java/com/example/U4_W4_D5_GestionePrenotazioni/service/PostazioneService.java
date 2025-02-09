@@ -1,7 +1,6 @@
 package com.example.U4_W4_D5_GestionePrenotazioni.service;
 
 import com.example.U4_W4_D5_GestionePrenotazioni.entities.Postazione;
-import com.example.U4_W4_D5_GestionePrenotazioni.entities.Prenotazione;
 import com.example.U4_W4_D5_GestionePrenotazioni.enumeration.Tipo;
 import com.example.U4_W4_D5_GestionePrenotazioni.repository.EdificioDAORepository;
 import com.example.U4_W4_D5_GestionePrenotazioni.repository.PostazioneDAORepository;

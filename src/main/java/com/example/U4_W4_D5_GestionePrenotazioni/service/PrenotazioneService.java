@@ -3,7 +3,6 @@ package com.example.U4_W4_D5_GestionePrenotazioni.service;
 import com.example.U4_W4_D5_GestionePrenotazioni.entities.Postazione;
 import com.example.U4_W4_D5_GestionePrenotazioni.entities.Prenotazione;
 import com.example.U4_W4_D5_GestionePrenotazioni.entities.Utente;
-import com.example.U4_W4_D5_GestionePrenotazioni.enumeration.Tipo;
 import com.example.U4_W4_D5_GestionePrenotazioni.repository.PostazioneDAORepository;
 import com.example.U4_W4_D5_GestionePrenotazioni.repository.PrenotazioneDAORepository;
 import com.example.U4_W4_D5_GestionePrenotazioni.repository.UtenteDAORepository;
@@ -35,6 +34,7 @@ public class PrenotazioneService {
     @Autowired @Qualifier("prenotazione4") ObjectProvider<Prenotazione> prenotazione4Provider;
     @Autowired @Qualifier("prenotazione5") ObjectProvider<Prenotazione> prenotazione5Provider;
 
+
     public Prenotazione createPrenotazione1(){
         return prenotazione1Provider.getObject();
     }
@@ -54,6 +54,8 @@ public class PrenotazioneService {
     public Prenotazione createPrenotazione5(){
         return prenotazione5Provider.getObject();
     }
+
+
 
     //METODI PRENOTAZIONI
 
