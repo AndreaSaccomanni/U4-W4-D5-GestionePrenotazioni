@@ -29,6 +29,15 @@ public class prenotazioneConfiguration {
 
     //METODO PER CREARE UNA PRENOTAZIONE
     public Prenotazione creaPrenotazione(Long codicePostazione, String usernameUtente, LocalDate dataPrenotazione) {
+        if (!prenotazioneService.isPostazioneEsistente(codicePostazione)) {
+            System.out.println("La postazione con codice " + codicePostazione + " non esiste.");
+            return null;
+        }
+
+        if (!prenotazioneService.isUtenteEsistente(usernameUtente)) {
+            System.out.println("L'utente con username " + usernameUtente + " non esiste.");
+            return null;
+        }
         Postazione postazione = postazioneDAO.findByCodiceUnivoco(codicePostazione);
         Utente utente = utenteDAO.findByUsername(usernameUtente);
 
@@ -46,66 +55,97 @@ public class prenotazioneConfiguration {
 
 //    @Bean(name = "prenotazione1")
 //    public Prenotazione prenotazione1() {
-//        Prenotazione prenotazione1 = creaPrenotazione(102L, "MarioRossi", LocalDate.of(2025, 3, 21));
-//        if (prenotazione1 != null) {
-//            System.out.println("Prenotazione avvenuta con successo");
-//            return prenotazione1;
+//        LocalDate dataPrenotazione = LocalDate.of(2025, 3, 21);
+//        if (prenotazioneService.controllaDataPrenotazione(dataPrenotazione)) {
+//            Prenotazione prenotazione1 = creaPrenotazione(102L, "MarioRossi", LocalDate.of(2025, 3, 21));
+//            if (prenotazione1 != null) {
+//                System.out.println("Prenotazione avvenuta con successo");
+//                return prenotazione1;
+//            } else {
+//                System.out.println("Impossibile creare la prenotazione");
+//                return null;
+//            }
 //        } else {
-//            System.out.println("Impossibile creare la prenotazione");
+//            System.out.println("La data inserita non è valida");
 //            return null;
 //        }
+//
 //    }
 
 
 //    @Bean(name = "prenotazione2")
 //    public Prenotazione prenotazione2() {
-//        Prenotazione prenotazione2 = creaPrenotazione(103L, "MarioRossi", LocalDate.of(2025, 2, 24));
-//        if (prenotazione2 != null) {
-//            System.out.println("Prenotazione avvenuta con successo: " + prenotazione2);
-//            return prenotazione2;
+//        LocalDate dataPrenotazione = LocalDate.of(2025, 2, 24);
+//        if (prenotazioneService.controllaDataPrenotazione(dataPrenotazione)) {
+//            Prenotazione prenotazione2 = creaPrenotazione(103L, "MarioRossi", LocalDate.of(2025, 2, 24));
+//            if (prenotazione2 != null) {
+//                System.out.println("Prenotazione avvenuta con successo");
+//                return prenotazione2;
+//            } else {
+//                System.out.println("Impossibile creare la prenotazione");
+//                return null;
+//            }
 //        } else {
-//            System.out.println("Impossibile creare la prenotazione");
+//            System.out.println("La data inserita non è valida");
 //            return null;
 //        }
 //    }
 
-
-//
 //    @Bean(name = "prenotazione3")
 //    public Prenotazione prenotazione3() {
-//        return new Prenotazione(postazioneDAO.findByCodiceUnivoco(54L), utenteDAO.findByUsername("GiacomoNeri"));
+//        LocalDate dataPrenotazione = LocalDate.of(2025, 5, 24);
+//        if (prenotazioneService.controllaDataPrenotazione(dataPrenotazione)) {
+//            Prenotazione prenotazione3 = creaPrenotazione(104L, "MarioRossi", LocalDate.of(2025, 5, 24));
+//            if (prenotazione3 != null) {
+//                System.out.println("Prenotazione avvenuta con successo");
+//                return prenotazione3;
+//            } else {
+//                System.out.println("Impossibile creare la prenotazione");
+//                return null;
+//            }
+//        } else {
+//            System.out.println("La data inserita non è valida");
+//            return null;
+//        }
 //    }
 //
 //    @Bean(name = "prenotazione4")
 //    public Prenotazione prenotazione4() {
-//        return new Prenotazione(postazioneDAO.findByCodiceUnivoco(55L), utenteDAO.findByUsername("MarioRossi"));
+//        LocalDate dataPrenotazione = LocalDate.of(2025, 4, 1);
+//        if (prenotazioneService.controllaDataPrenotazione(dataPrenotazione)) {
+//            Prenotazione prenotazione4 = creaPrenotazione(105L, "LuigiVerdi", LocalDate.of(2025, 4, 1));
+//
+//            if (prenotazione4 != null) {
+//                System.out.println("Prenotazione avvenuta con successo");
+//                return prenotazione4;
+//            } else {
+//                System.out.println("Impossibile creare la prenotazione");
+//                return null;
+//            }
+//        } else {
+//            System.out.println("La data inserita non è valida");
+//            return null;
+//        }
+//
 //    }
 //
 //    @Bean(name = "prenotazione5")
 //    public Prenotazione prenotazione5() {
-//        return new Prenotazione(postazioneDAO.findByCodiceUnivoco(56L), utenteDAO.findByUsername("LuigiVerdi"));
+//        LocalDate dataPrenotazione = LocalDate.of(2025, 3, 26);
+//        if (prenotazioneService.controllaDataPrenotazione(dataPrenotazione)) {
+//            Prenotazione prenotazione5 = creaPrenotazione(106L, "GiacomoNeri", LocalDate.of(2025, 3, 26));
+//            if (prenotazione5 != null) {
+//                System.out.println("Prenotazione avvenuta con successo");
+//                return prenotazione5;
+//            } else {
+//                System.out.println("Impossibile creare la prenotazione");
+//                return null;
+//            }
+//        } else {
+//            System.out.println("La data inserita non è valida");
+//            return null;
+//        }
 //    }
-//
-//    @Bean(name = "prenotazione6")
-//    public Prenotazione prenotazione6() {
-//        return new Prenotazione(postazioneDAO.findByCodiceUnivoco(57L), utenteDAO.findByUsername("GiacomoNeri"));
-//    }
-//
-//    @Bean(name = "prenotazione7")
-//    public Prenotazione prenotazione7() {
-//        return new Prenotazione(postazioneDAO.findByCodiceUnivoco(58L), utenteDAO.findByUsername("MarioRossi"));
-//    }
-//
-//    @Bean(name = "prenotazione8")
-//    public Prenotazione prenotazione8() {
-//        return new Prenotazione(postazioneDAO.findByCodiceUnivoco(59L), utenteDAO.findByUsername("LuigiVerdi"));
-//    }
-//
-//    @Bean(name = "prenotazione9")
-//    public Prenotazione prenotazione9() {
-//        return new Prenotazione(postazioneDAO.findByCodiceUnivoco(60L), utenteDAO.findByUsername("GiacomoNeri"));
-//    }
-
 
 
 }
