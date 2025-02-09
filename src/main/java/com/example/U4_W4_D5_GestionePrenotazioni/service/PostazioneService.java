@@ -1,12 +1,16 @@
 package com.example.U4_W4_D5_GestionePrenotazioni.service;
 
 import com.example.U4_W4_D5_GestionePrenotazioni.entities.Postazione;
+import com.example.U4_W4_D5_GestionePrenotazioni.entities.Prenotazione;
+import com.example.U4_W4_D5_GestionePrenotazioni.enumeration.Tipo;
 import com.example.U4_W4_D5_GestionePrenotazioni.repository.EdificioDAORepository;
 import com.example.U4_W4_D5_GestionePrenotazioni.repository.PostazioneDAORepository;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PostazioneService {
@@ -65,5 +69,17 @@ public class PostazioneService {
 
     public void salvaPostazione(Postazione p){
         postazioneDAO.save(p);
+    }
+
+    //    metodo per cercare una prenotazione tramite tipo e città
+    public List<Postazione> cercaPrenotazioniPerTipoPostazioneECitta(Tipo tipoPostazione, String citta) {
+        List<Postazione> postazioni = postazioneDAO.findByTipoAndCitta(tipoPostazione, citta);
+        if (postazioni.isEmpty()) {
+            System.out.println("Nessuna postazione trovata per tipo " + tipoPostazione + " nella città di " + citta);
+        }else{
+            System.out.println("Le postazioni trovate sono:");
+            postazioni.forEach(p -> System.out.println(p));
+        }
+        return postazioni;
     }
 }

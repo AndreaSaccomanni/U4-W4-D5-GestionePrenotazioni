@@ -24,16 +24,16 @@ public interface PrenotazioneDAORepository extends JpaRepository<Prenotazione, L
 //            " AND p.data_prenotazione < :dataInizioPrenotazione ")
 //    public List<Prenotazione> verificaPostazioneLibera(Long idPostazione, LocalDate dataInizioPrenotazione, LocalDate dataFinePrenotazione);
 
-    //query per cercare prenotazioni disponibili
-    @Query("SELECT COUNT(p) FROM Prenotazione p WHERE p.utente.id = :idUtente AND p.postazione.id = :idPostazione AND p.dataPrenotazione = :dataPrenotazione")
-    public long controlloValiditaPrenotazione(@Param("idUtente") Long idUtente,
-                                                            @Param("idPostazione") Long idPostazione,
-                                                            @Param("dataPrenotazione") LocalDate dataPrenotazione);
+    // Query per verificare se la postazione è già prenotata per una determinata data
+    @Query("SELECT COUNT(p) FROM Prenotazione p WHERE p.postazione.id = :idPostazione AND p.dataPrenotazione = :dataPrenotazione")
+    Long controlloPrenotazionePerPostazioneEData(@Param("idPostazione") Long idPostazione,
+                                                 @Param("dataPrenotazione") LocalDate dataPrenotazione);
 
-    //query per cercare prentotzioni tramite tipo e città
+    // Query per verificare se l'utente ha già prenotato una postazione per la stessa data
+    @Query("SELECT COUNT(p) FROM Prenotazione p WHERE p.utente.id = :idUtente AND p.dataPrenotazione = :dataPrenotazione")
+    Long controlloPrenotazionePerUtenteEData(@Param("idUtente") Long idUtente,
+                                             @Param("dataPrenotazione") LocalDate dataPrenotazione);
 
-    @Query("SELECT p FROM Prenotazione p " +
-            "WHERE p.postazione.tipo = :tipoPostazione " +
-            "AND p.postazione.citta = :citta")
-    List<Prenotazione> findByTipoAndCitta(Tipo tipoPostazione, String citta);
+
+
 }

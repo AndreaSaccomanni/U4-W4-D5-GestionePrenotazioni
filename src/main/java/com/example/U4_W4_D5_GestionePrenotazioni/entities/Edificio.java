@@ -18,8 +18,11 @@ public class Edificio {
     @Id
     @GeneratedValue
     private long id;
+    @Column(nullable = false)
     private String nome;
+    @Column(nullable = false)
     private String indirizzo;
+    @Column(nullable = false)
     private String citta;
 
     @OneToMany(mappedBy = "edificio", fetch = FetchType.EAGER)
@@ -31,5 +34,14 @@ public class Edificio {
         this.nome = nome;
         this.indirizzo = indirizzo;
         this.citta = citta;
+    }
+
+    @Override
+    public String toString() {
+        return "Edificio{" +
+                "nome='" + nome + '\'' +
+                ", indirizzo='" + indirizzo + '\'' +
+                ", citta='" + citta + '\'' +
+                '}';
     }
 }

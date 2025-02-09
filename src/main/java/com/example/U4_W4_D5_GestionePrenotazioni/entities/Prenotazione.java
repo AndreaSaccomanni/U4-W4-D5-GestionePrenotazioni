@@ -28,7 +28,7 @@ public class Prenotazione {
     @ManyToOne
     @JoinColumn(name = "utente_id")
     private Utente utente;
-
+    @Column(nullable = false)
     private LocalDate dataPrenotazione;
     private LocalDate scadenzaPrenotazione;
 
@@ -41,5 +41,15 @@ public class Prenotazione {
 
     public LocalDate calcolaScadenza() {
         return this.dataPrenotazione.plusDays(1);
+    }
+
+    @Override
+    public String toString() {
+        return "Prenotazione{" +
+                "scadenzaPrenotazione=" + scadenzaPrenotazione +
+                ", dataPrenotazione=" + dataPrenotazione +
+                ", utente=" + utente.getId() +
+                ", postazione=" + postazione.getCodiceUnivoco() +
+                '}';
     }
 }

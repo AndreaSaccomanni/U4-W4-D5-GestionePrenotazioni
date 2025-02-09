@@ -9,5 +9,4 @@ public class U4W4D5GestionePrenotazioniApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(U4W4D5GestionePrenotazioniApplication.class, args);
 	}
-
 }

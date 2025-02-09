@@ -12,6 +12,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 public class prenotazioneConfiguration {
@@ -25,26 +27,49 @@ public class prenotazioneConfiguration {
     PrenotazioneService prenotazioneService;
 
 
-    @Bean(name = "prenotazione1")
-    public Prenotazione prenotazione1() {
-        Prenotazione prenotazione1 = new Prenotazione(postazioneDAO.findByCodiceUnivoco(52L), utenteDAO.findByUsername("MarioRossi"), LocalDate.of(2025, 3, 21));
-        if (prenotazioneService.controlloValiditaPrenotazione(prenotazione1)) {
-            return prenotazione1;
+    //METODO PER CREARE UNA PRENOTAZIONE
+    public Prenotazione creaPrenotazione(Long codicePostazione, String usernameUtente, LocalDate dataPrenotazione) {
+        Postazione postazione = postazioneDAO.findByCodiceUnivoco(codicePostazione);
+        Utente utente = utenteDAO.findByUsername(usernameUtente);
+
+        Prenotazione prenotazione = new Prenotazione(postazione, utente, dataPrenotazione);
+
+        if (prenotazioneService.isPrenotazioneValida(prenotazione)) {
+            System.out.println("Prentazione avvenuta con successo!");
+            return prenotazione;
         } else {
-            System.out.println("Impossibile creare la prenotazione");
+            System.out.println("Impossibile creare la prenotazione per " + usernameUtente + " il " + dataPrenotazione);
             return null;
         }
     }
 
-    @Bean(name = "prenotazione2")
-    public Prenotazione prenotazione2() {
-        Prenotazione prenotazione2 = new Prenotazione(postazioneDAO.findByCodiceUnivoco(53L), utenteDAO.findByUsername("MarioRossi"), LocalDate.of(2025, 3, 21));
-        if (prenotazioneService.controlloValiditaPrenotazione(prenotazione2)) {
-            return prenotazione2;
-        } else {
-            System.out.println("Impossibile creare la prenotazione");
-            return null;
-        }
+
+//    @Bean(name = "prenotazione1")
+//    public Prenotazione prenotazione1() {
+//        Prenotazione prenotazione1 = creaPrenotazione(102L, "MarioRossi", LocalDate.of(2025, 3, 21));
+//        if (prenotazione1 != null) {
+//            System.out.println("Prenotazione avvenuta con successo");
+//            return prenotazione1;
+//        } else {
+//            System.out.println("Impossibile creare la prenotazione");
+//            return null;
+//        }
+//    }
+
+
+//    @Bean(name = "prenotazione2")
+//    public Prenotazione prenotazione2() {
+//        Prenotazione prenotazione2 = creaPrenotazione(103L, "MarioRossi", LocalDate.of(2025, 2, 24));
+//        if (prenotazione2 != null) {
+//            System.out.println("Prenotazione avvenuta con successo: " + prenotazione2);
+//            return prenotazione2;
+//        } else {
+//            System.out.println("Impossibile creare la prenotazione");
+//            return null;
+//        }
+//    }
+
+
 //
 //    @Bean(name = "prenotazione3")
 //    public Prenotazione prenotazione3() {
@@ -82,5 +107,6 @@ public class prenotazioneConfiguration {
 //    }
 
 
-    }
+
 }
+

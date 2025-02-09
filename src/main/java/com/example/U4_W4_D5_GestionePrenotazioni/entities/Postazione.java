@@ -18,9 +18,13 @@ import java.util.List;
 public class Postazione {
     @Id
     @GeneratedValue
+
     private Long codiceUnivoco;
     private String descrizione;
+
+    @Enumerated(EnumType.STRING)
     private Tipo tipo;
+
     private int numeroMaxOccupanti;
 
     @ManyToOne
@@ -35,5 +39,16 @@ public class Postazione {
         this.tipo = tipo;
         this.numeroMaxOccupanti = numeroMaxOccupanti;
         this.edificio = edificio;
+    }
+
+    @Override
+    public String toString() {
+        return "Postazione{" +
+                "codiceUnivoco=" + codiceUnivoco +
+                ", descrizione='" + descrizione + '\'' +
+                ", tipo=" + tipo +
+                ", numeroMaxOccupanti=" + numeroMaxOccupanti +
+                ", edificio=" + edificio.getNome() +
+                '}';
     }
 }

@@ -12,13 +12,15 @@ public class PrenotazioneRunner implements CommandLineRunner {
 
     @Autowired
     PrenotazioneService prenotazioneService;
+    @Autowired
+    PrenotazioneDAORepository prenotazioneDAO;
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("--- Prenotazione Runner ---");
+        System.out.println("----- PRENOTAZIONE RUNNER -----");
 
-        //Prenotazione prenotazione1 = prenotazioneService.createPrenotazione1();
-        Prenotazione prenotazione2 = prenotazioneService.createPrenotazione2();
+//        Prenotazione prenotazione1 = prenotazioneService.createPrenotazione1();
+//        Prenotazione prenotazione2 = prenotazioneService.createPrenotazione2();
 //        Prenotazione prenotazione3 = prenotazioneService.createPrenotazione3();
 //        Prenotazione prenotazione4 = prenotazioneService.createPrenotazione4();
 //        Prenotazione prenotazione5 = prenotazioneService.createPrenotazione5();
@@ -27,8 +29,8 @@ public class PrenotazioneRunner implements CommandLineRunner {
 //        Prenotazione prenotazione8 = prenotazioneService.createPrenotazione8();
 //        Prenotazione prenotazione9 = prenotazioneService.createPrenotazione9();
 //
-        //prenotazioneService.salvaPrenotazione(prenotazione1);
-        prenotazioneService.salvaPrenotazione(prenotazione2);
+//        prenotazioneService.salvaPrenotazione(prenotazione1);
+//        prenotazioneService.salvaPrenotazione(prenotazione2);
 //        prenotazioneService.salvaPrenotazione(prenotazione3);
 //        prenotazioneService.salvaPrenotazione(prenotazione4);
 //        prenotazioneService.salvaPrenotazione(prenotazione5);
@@ -36,6 +38,12 @@ public class PrenotazioneRunner implements CommandLineRunner {
 //        prenotazioneService.salvaPrenotazione(prenotazione7);
 //        prenotazioneService.salvaPrenotazione(prenotazione8);
 //        prenotazioneService.salvaPrenotazione(prenotazione9);
+
+
+
+//        PER VEDERE IN CONSOLE TUTTE LE PRENOTAZIONI
+        System.out.println("Le prenotazioni salvate sono:");
+        prenotazioneDAO.findAll().forEach(p -> System.out.println(p));
 
     }
 

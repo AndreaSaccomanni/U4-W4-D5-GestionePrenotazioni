@@ -19,8 +19,10 @@ public class Utente {
     @Id
     @GeneratedValue
     private long id;
+    @Column(nullable = false)
     private String username;
     private String nomeECognome;
+    @Column(nullable = false)
     private String email;
 
     @OneToMany(mappedBy = "utente")
@@ -32,7 +34,12 @@ public class Utente {
         this.email = email;
     }
 
-    public void findByTipo(){};
-
-    public void findByCitta(){};
+    @Override
+    public String toString() {
+        return "Utente{" +
+                "username='" + username + '\'' +
+                ", nomeECognome='" + nomeECognome + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
